@@ -1,25 +1,33 @@
-# Welcome!
-
-This C# template lets you get started quickly with a simple one-page playground.
-
-```C# runnable
-// { autofold
 using System;
 
-class Hello 
+public class Counter
 {
-    static void Main() 
-    {
-// }
+	private int counterValue = 0;
 
-Console.WriteLine("Hello World!");
+	public void CountUp()
+	{
+		counterValue++;
+	}
 
-// { autofold
-    }
+	public void CountDown()
+	{
+		counterValue--;
+	}
+
+	public int GetCounterValue()
+	{
+		return counterValue;
+	}
 }
-// }
-```
-
-# Advanced usage
-
-If you want a more complex example (external libraries, viewers...), use the [Advanced C# template](https://tech.io/select-repo/386)
+   
+class ExecuteEncapsulation {
+	static void Main(string[] args) {
+        var c = new Counter();
+        Console.WriteLine(c.GetCounterValue()); //Expected 0
+        c.CountUp(); // value wil be increased to: 1
+        c.CountUp(); // value wil be increased to: 2
+        Console.WriteLine(c.GetCounterValue()); //Expected 2
+        c.CountDown(); // value wil be decreased to: 1
+        Console.WriteLine(c.GetCounterValue()); //Expected 1
+   }
+}
